@@ -1,0 +1,309 @@
+.projects {
+  &__head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  &__title {
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  &__filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 900px) { &__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) {
+    &__grid { grid-template-columns: 1fr; }
+    &__head { flex-direction: column; align-items: flex-start; }
+  }
+}
+
+.filter-btn {
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 1.1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+
+  &:hover { border-color: var(--accent); color: var(--accent); }
+
+  &--active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    box-shadow: 0 0 14px var(--glow-purple);
+  }
+}
+
+// ─── Project Card ─────────────────────────────────────────────────────────────
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139,92,246,0.3);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+
+  &--recent {
+    border-color: rgba(139,92,246,0.2);
+  }
+
+  // ─── Preview ───────────────────────────────────────────────────────────
+  &__preview {
+    position: relative;
+    height: 148px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-surface);
+  }
+
+  // ─── Status / Year badges ───────────────────────────────────────────────
+  &__badge {
+    position: absolute;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-xl);
+    padding: 0.22rem 0.6rem;
+    z-index: 10;
+    pointer-events: none;
+
+    &--ongoing {
+      top: 10px; left: 10px;
+      background: rgba(251,191,36,0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(251,191,36,0.3);
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+
+    &--done {
+      top: 10px; left: 10px;
+      background: rgba(52,211,153,0.12);
+      color: #34d399;
+      border: 1px solid rgba(52,211,153,0.25);
+    }
+
+    &--recent {
+      top: 10px; right: 10px;
+      background: rgba(139,92,246,0.15);
+      color: #a78bfa;
+      border: 1px solid rgba(139,92,246,0.28);
+    }
+
+    &--year {
+      top: 10px; right: 10px;
+      background: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+  }
+
+  // ─── Body ──────────────────────────────────────────────────────────────
+  &__body {
+    padding: 1.1rem 1.25rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    flex: 1;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__category {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  &__title {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  &__desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  // ─── Footer ────────────────────────────────────────────────────────────
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  &__tech {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  &__links {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+}
+
+// ─── Tech icon badge ──────────────────────────────────────────────────────────
+.tech-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  cursor: default;
+  transition: transform var(--transition), border-color var(--transition);
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-hover);
+  }
+
+  iconify-icon { display: block; }
+
+  // CSS tooltip
+  &::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-hover);
+    border-radius: 5px;
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  &:hover::after { opacity: 1; }
+}
+
+// ─── Screenshot slider ────────────────────────────────────────────────────────
+.proj-slider {
+  --slides: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &__track {
+    display: flex;
+    width: calc(var(--slides) * 100%);
+    height: 100%;
+    transform: translateX(0);
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__img {
+    width: calc(100% / var(--slides));
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  // Theme overlay — purple gradient on top of screenshots
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(139, 92, 246, 0.38) 0%,
+      rgba(59, 130, 246, 0.18) 50%,
+      rgba(8, 8, 16, 0.55) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+    transition: opacity var(--transition);
+  }
+
+  // Slide to 2nd image on hover (multi-slide only)
+  &--multi:hover &__track {
+    transform: translateX(calc(-100% / var(--slides)));
+  }
+
+  // Lighten overlay slightly on hover so screenshots are more visible
+  &:hover &__overlay {
+    opacity: 0.7;
+  }
+}
+
+// ─── Badge pulse animation ────────────────────────────────────────────────────
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.55; }
+}
+
+// ─── Project link buttons ─────────────────────────────────────────────────────
+.proj-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: var(--transition);
+
+  &:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+  }
+
+  &--live:hover { color: var(--accent-cyan); border-color: rgba(6,182,212,0.4); }
+  &--drive:hover { color: #4285f4; border-color: rgba(66,133,244,0.4); }
+}

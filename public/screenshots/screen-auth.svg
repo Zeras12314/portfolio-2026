@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480">
+  <!-- Left panel (white/light) -->
+  <rect width="360" height="480" fill="#ffffff"/>
+  <!-- Logo bolt -->
+  <polygon points="198,48 188,76 200,76 190,104 210,72 198,72 208,48" fill="#4f46e5"/>
+  <!-- Login heading -->
+  <text x="136" y="130" font-family="Inter,sans-serif" font-size="26" font-weight="700" fill="#1a1a2e">Login</text>
+  <text x="136" y="155" font-family="Inter,sans-serif" font-size="12" fill="#6b7280">See your growth and get consulting support!</text>
+  <!-- Google button -->
+  <rect x="136" y="172" width="196" height="38" rx="19" fill="white" stroke="#e5e7eb" stroke-width="1.5"/>
+  <circle cx="168" cy="191" r="10" fill="#fff"/>
+  <text x="164" y="196" font-family="sans-serif" font-size="12" font-weight="700" fill="#4285f4">G</text>
+  <text x="182" y="196" font-family="Inter,sans-serif" font-size="12" fill="#374151">Sign in with Google</text>
+  <!-- Divider -->
+  <line x1="136" y1="225" x2="236" y2="225" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="238" y="229" font-family="Inter,sans-serif" font-size="10" fill="#9ca3af">or</text>
+  <line x1="252" y1="225" x2="332" y2="225" stroke="#e5e7eb" stroke-width="1"/>
+  <!-- Email field -->
+  <text x="136" y="254" font-family="Inter,sans-serif" font-size="11" fill="#374151">Email*</text>
+  <rect x="136" y="260" width="196" height="34" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="148" y="282" font-family="Inter,sans-serif" font-size="11" fill="#9ca3af">mail@website.com</text>
+  <!-- Password field -->
+  <text x="136" y="310" font-family="Inter,sans-serif" font-size="11" fill="#374151">Password*</text>
+  <rect x="136" y="316" width="196" height="34" rx="6" fill="white" stroke="#d1d5db" stroke-width="1.5"/>
+  <text x="148" y="338" font-family="Inter,sans-serif" font-size="11" fill="#9ca3af">Min. 8 character</text>
+  <!-- Remember / Forget -->
+  <rect x="136" y="360" width="12" height="12" rx="3" fill="#4f46e5"/>
+  <text x="155" y="371" font-family="Inter,sans-serif" font-size="11" fill="#374151">Remember me</text>
+  <text x="272" y="371" font-family="Inter,sans-serif" font-size="11" fill="#4f46e5">Forget password?</text>
+  <!-- Login button -->
+  <rect x="136" y="383" width="196" height="38" rx="19" fill="#4f46e5"/>
+  <text x="214" y="407" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">Login</text>
+  <!-- Not registered -->
+  <text x="136" y="436" font-family="Inter,sans-serif" font-size="11" fill="#6b7280">Not registered yet? </text>
+  <text x="243" y="436" font-family="Inter,sans-serif" font-size="11" fill="#4f46e5">Create an Account</text>
+  <!-- Footer -->
+  <text x="136" y="462" font-family="Inter,sans-serif" font-size="10" fill="#9ca3af">©2024 Felix All rights reserved.</text>
+
+  <!-- Right panel (purple) -->
+  <rect x="360" width="360" height="480" fill="#4f46e5"/>
+  <!-- Triangle decorations top-right -->
+  <polygon points="672,20 720,20 720,68" fill="#3730a3" opacity="0.7"/>
+  <polygon points="630,20 680,20 680,68" fill="#3730a3" opacity="0.5"/>
+  <polygon points="590,20 640,20 640,68" fill="#3730a3" opacity="0.3"/>
+  <polygon points="672,68 720,68 720,116" fill="#3730a3" opacity="0.5"/>
+  <!-- Floating social icons -->
+  <circle cx="450" cy="110" r="30" fill="white" opacity="0.95"/>
+  <text x="450" y="117" font-family="sans-serif" font-size="20" fill="#1DA1F2" text-anchor="middle">𝕏</text>
+  <circle cx="570" cy="80" r="25" fill="white" opacity="0.9"/>
+  <text x="570" y="88" font-family="sans-serif" font-size="18" fill="#E1306C" text-anchor="middle">📷</text>
+  <circle cx="680" cy="320" r="24" fill="white" opacity="0.9"/>
+  <text x="680" y="328" font-family="sans-serif" font-size="16" fill="#006AFF" text-anchor="middle">💬</text>
+  <!-- Rewards card -->
+  <rect x="490" y="95" width="160" height="100" rx="10" fill="white" opacity="0.97"/>
+  <text x="510" y="118" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#1a1a2e">Rewards</text>
+  <circle cx="600" cy="150" r="22" fill="#e5e7eb"/>
+  <text x="600" y="157" font-family="sans-serif" font-size="18" text-anchor="middle">👤</text>
+  <text x="565" y="183" font-family="Inter,sans-serif" font-size="10" fill="#6b7280">Points</text>
+  <text x="548" y="196" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#1a1a2e">172,832</text>
+  <!-- Chart card -->
+  <rect x="375" y="215" width="200" height="130" rx="10" fill="white" opacity="0.97"/>
+  <text x="392" y="238" font-family="Inter,sans-serif" font-size="16" font-weight="700" fill="#1a1a2e">$162,751</text>
+  <text x="500" y="238" font-family="Inter,sans-serif" font-size="10" fill="#6b7280">Last year</text>
+  <text x="490" y="255" font-family="Inter,sans-serif" font-size="11" fill="#4f46e5">$23,827</text>
+  <text x="492" y="268" font-family="Inter,sans-serif" font-size="10" fill="#6b7280">August</text>
+  <!-- Chart line -->
+  <polyline points="392,310 412,300 430,308 448,290 466,295 484,275 502,280 520,265 538,270 555,260" fill="none" stroke="#4f46e5" stroke-width="2.5" stroke-linecap="round"/>
+  <polyline points="392,320 412,315 430,318 448,308 466,312 484,295 502,300 520,285 538,290 555,280" fill="none" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- X labels -->
+  <text x="392" y="342" font-family="Inter,sans-serif" font-size="9" fill="#9ca3af">APR</text>
+  <text x="414" y="342" font-family="Inter,sans-serif" font-size="9" fill="#9ca3af">MAY</text>
+  <text x="436" y="342" font-family="Inter,sans-serif" font-size="9" fill="#9ca3af">JUN</text>
+  <text x="458" y="342" font-family="Inter,sans-serif" font-size="9" fill="#4f46e5" font-weight="600">JUL</text>
+  <text x="480" y="342" font-family="Inter,sans-serif" font-size="9" fill="#9ca3af">AUG</text>
+  <!-- Headline text -->
+  <text x="540" y="390" font-family="Inter,sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">Turn your ideas</text>
+  <text x="540" y="414" font-family="Inter,sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">into reality.</text>
+  <text x="540" y="435" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.75)" text-anchor="middle">Consistent quality and experience across</text>
+  <text x="540" y="450" font-family="Inter,sans-serif" font-size="11" fill="rgba(255,255,255,0.75)" text-anchor="middle">all platforms and devices.</text>
+  <!-- Dots -->
+  <circle cx="525" cy="464" r="4" fill="white" opacity="0.9"/>
+  <circle cx="540" cy="464" r="3" fill="white" opacity="0.4"/>
+  <circle cx="555" cy="464" r="3" fill="white" opacity="0.4"/>
+</svg>

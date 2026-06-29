@@ -1,0 +1,95 @@
+<section class="projects section" id="projects">
+  <div class="container">
+    <div class="projects__head">
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h2 class="projects__title">Featured <span class="glow-text">Projects</span></h2>
+      </div>
+      <div class="projects__filters">
+        @for (f of filters; track f) {
+          <button
+            class="filter-btn"
+            [class.filter-btn--active]="activeFilter() === f"
+            (click)="setFilter(f)">
+            {{ f }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="projects__grid">
+      @for (proj of filtered; track proj.title) {
+        <article class="project-card glass-card" [class.project-card--recent]="proj.isRecent">
+
+          <!-- Preview / Slider area -->
+          <div class="project-card__preview">
+            <div
+              class="proj-slider"
+              [class.proj-slider--multi]="proj.screenshots.length > 1"
+              [style.--slides]="proj.screenshots.length">
+              <div class="proj-slider__track">
+                @for (shot of proj.screenshots; track shot) {
+                  <img [src]="shot" [alt]="proj.title" class="proj-slider__img" loading="lazy">
+                }
+              </div>
+              <div class="proj-slider__overlay"></div>
+            </div>
+
+            <!-- Status badge: top-left -->
+            @if (proj.status === 'ongoing') {
+              <span class="project-card__badge project-card__badge--ongoing">● In Progress</span>
+            } @else {
+              <span class="project-card__badge project-card__badge--done">✓ Completed</span>
+            }
+
+            <!-- Year / Recent badge: top-right -->
+            @if (proj.isRecent) {
+              <span class="project-card__badge project-card__badge--recent">Recent</span>
+            } @else {
+              <span class="project-card__badge project-card__badge--year">{{ proj.year }}</span>
+            }
+          </div>
+
+          <!-- Body -->
+          <div class="project-card__body">
+            <div class="project-card__meta">
+              <span class="project-card__category">{{ proj.category }}</span>
+            </div>
+            <h3 class="project-card__title">{{ proj.title }}</h3>
+            <p class="project-card__desc">{{ proj.desc }}</p>
+          </div>
+
+          <!-- Footer: tech icons + links -->
+          <div class="project-card__footer">
+            <div class="project-card__tech">
+              @for (t of proj.tech; track t.name) {
+                <span class="tech-icon" [attr.data-tooltip]="t.name">
+                  <iconify-icon [icon]="t.icon" width="20" height="20"></iconify-icon>
+                </span>
+              }
+            </div>
+
+            <div class="project-card__links">
+              @if (proj.githubUrl) {
+                <a [href]="proj.githubUrl" target="_blank" rel="noopener" class="proj-link" title="GitHub Repository">
+                  <iconify-icon icon="mdi:github" width="16" height="16"></iconify-icon>
+                </a>
+              }
+              @if (proj.liveUrl) {
+                <a [href]="proj.liveUrl" target="_blank" rel="noopener" class="proj-link proj-link--live" title="Live Site">
+                  <iconify-icon icon="lucide:external-link" width="16" height="16"></iconify-icon>
+                </a>
+              }
+              @if (proj.driveUrl) {
+                <a [href]="proj.driveUrl" target="_blank" rel="noopener" class="proj-link proj-link--drive" title="View on Google Drive">
+                  <iconify-icon icon="logos:google-drive" width="16" height="16"></iconify-icon>
+                </a>
+              }
+            </div>
+          </div>
+
+        </article>
+      }
+    </div>
+  </div>
+</section>

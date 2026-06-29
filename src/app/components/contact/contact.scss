@@ -1,0 +1,219 @@
+.contact {
+  position: relative;
+  overflow: hidden;
+
+  &__glow {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(139,92,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    filter: blur(60px);
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+  }
+
+  &__title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  &__sub {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__info-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    transition: var(--transition);
+
+    &:hover { border-color: var(--border-hover); transform: translateX(4px); }
+  }
+
+  &__info-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--accent-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  &__info-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.15rem;
+  }
+
+  &__info-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  // ─── Right panel ─────────────────────────────────────────────────────
+  &__connect {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__avail {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: flex-start;
+    background: rgba(52,211,153,0.08);
+    border: 1px solid rgba(52,211,153,0.2);
+    border-radius: var(--radius-xl);
+    padding: 0.35rem 0.9rem;
+  }
+
+  &__avail-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34d399;
+    animation: pulse-green 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  &__avail-text {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #34d399;
+  }
+
+  &__connect-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  &__connect-sub {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: -0.75rem;
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &__open-to {
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+  }
+
+  &__open-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.65rem;
+  }
+
+  &__open-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__open-tag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-muted);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-xl);
+    padding: 0.3rem 0.85rem;
+  }
+
+  @media (max-width: 900px) {
+    &__layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+}
+
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1.1rem;
+  transition: var(--transition);
+
+  &:hover {
+    border-color: var(--border-hover);
+    transform: translateX(4px);
+
+    .social-row__arrow { opacity: 1; transform: translate(2px, -2px); }
+  }
+
+  &__icon {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__info { flex: 1; }
+
+  &__name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  &__handle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.1rem;
+  }
+
+  &__arrow {
+    color: var(--text-muted);
+    opacity: 0;
+    transition: opacity var(--transition), transform var(--transition);
+    flex-shrink: 0;
+  }
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.75); }
+}

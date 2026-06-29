@@ -1,0 +1,66 @@
+<section class="contact section" id="contact">
+  <div class="contact__glow"></div>
+
+  <div class="container contact__layout">
+
+    <!-- Left: Heading + info cards -->
+    <div class="contact__info">
+      <p class="eyebrow">Get In Touch</p>
+      <h2 class="contact__title">Let's Build <span class="glow-text">Something</span> Great</h2>
+      <p class="contact__sub">
+        Have a project in mind? Whether it's a greenfield product, a legacy rescue,
+        or a quick consultation — reach out directly through any channel below.
+      </p>
+
+      <div class="contact__cards">
+        @for (card of infoCards; track card.label) {
+          <a class="contact__info-card glass-card" [href]="card.href">
+            <div class="contact__info-icon">
+              <iconify-icon [icon]="card.icon" width="20" height="20"></iconify-icon>
+            </div>
+            <div>
+              <p class="contact__info-label">{{ card.label }}</p>
+              <p class="contact__info-value">{{ card.value }}</p>
+            </div>
+          </a>
+        }
+      </div>
+    </div>
+
+    <!-- Right: Social links + availability -->
+    <div class="contact__connect glass-card">
+      <div class="contact__avail">
+        <span class="contact__avail-dot"></span>
+        <span class="contact__avail-text">Available for new opportunities</span>
+      </div>
+
+      <h3 class="contact__connect-title">Find Me Online</h3>
+      <p class="contact__connect-sub">Pick your preferred platform — I'm active on all of them.</p>
+
+      <div class="contact__socials">
+        @for (s of socials; track s.name) {
+          <a class="social-row glass-card" [href]="s.href" target="_blank" rel="noopener">
+            <div class="social-row__icon" [style.color]="s.color">
+              <iconify-icon [icon]="s.icon" width="22" height="22"></iconify-icon>
+            </div>
+            <div class="social-row__info">
+              <p class="social-row__name">{{ s.name }}</p>
+              <p class="social-row__handle">{{ s.handle }}</p>
+            </div>
+            <iconify-icon class="social-row__arrow" icon="lucide:arrow-up-right" width="16" height="16"></iconify-icon>
+          </a>
+        }
+      </div>
+
+      <div class="contact__open-to">
+        <p class="contact__open-label">Open to</p>
+        <div class="contact__open-tags">
+          @for (tag of openTo; track tag) {
+            <span class="contact__open-tag">{{ tag }}</span>
+          }
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

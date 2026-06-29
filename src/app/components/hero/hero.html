@@ -1,0 +1,70 @@
+<section class="hero section" id="home">
+  <!-- Ambient glows -->
+  <div class="hero__glow hero__glow--left"></div>
+  <div class="hero__glow hero__glow--right"></div>
+
+  <div class="container hero__layout">
+
+    <!-- Left: Text -->
+    <div class="hero__content">
+      <span class="hero__chip">
+        <span class="hero__chip-dot"></span>
+        Available for freelance
+      </span>
+
+      <h1 class="hero__heading">
+        Full Stack<br>
+        <span class="glow-text">Developer</span>
+      </h1>
+
+      <p class="hero__sub">
+        Building scalable web applications and crafting seamless digital
+        experiences — from pixel-perfect UIs to robust back-end systems.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--purple">View Projects</a>
+        <a href="#contact" class="btn btn--ghost">Let's Talk</a>
+      </div>
+
+      <div class="hero__stack">
+        <span class="hero__stack-label">Tech Stack</span>
+        <div class="hero__stack-tags">
+          @for (tech of techStack; track tech) {
+            <span class="hero__tag">{{ tech }}</span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Neon ring photo -->
+    <div class="hero__visual">
+      <!-- Outer neon ring -->
+      <div class="hero__ring hero__ring--1"></div>
+
+      <!-- Photo frame -->
+      <div class="hero__photo-frame">
+        <img
+          src="images/dp_main.png"
+          class="hero__photo"
+          alt="Profile photo"
+        >
+      </div>
+
+      <!-- Floating stat cards -->
+      <div class="hero__stat hero__stat--tl glass-card">
+        <span class="hero__stat-val">150+</span>
+        <span class="hero__stat-key">Projects</span>
+      </div>
+      <div class="hero__stat hero__stat--br glass-card">
+        <span class="hero__stat-val">5 YRS</span>
+        <span class="hero__stat-key">Experience</span>
+      </div>
+
+      <!-- Floating dot decorations -->
+      <div class="hero__dots hero__dots--tl"></div>
+      <div class="hero__dots hero__dots--br"></div>
+    </div>
+
+  </div>
+</section>

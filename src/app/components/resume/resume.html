@@ -1,0 +1,68 @@
+<section class="resume section" id="resume">
+  <div class="container resume__layout">
+
+    <!-- Left: Experience timeline -->
+    <div class="resume__experience">
+      <p class="eyebrow">Career</p>
+      <h2 class="resume__title">Experience &amp; <span class="glow-text">Highlights</span></h2>
+
+      <div class="resume__timeline">
+        @for (job of experiences; track job.company) {
+          <div class="timeline-item" [class.timeline-item--current]="job.current" [class.timeline-item--achievement]="job.type === 'achievement'">
+            <div class="timeline-item__dot"></div>
+            <div class="timeline-item__card glass-card">
+              <div class="timeline-item__meta">
+                <span class="timeline-item__company">{{ job.company }}</span>
+                <span class="timeline-item__period">{{ job.period }}</span>
+              </div>
+              <h3 class="timeline-item__role">{{ job.role }}</h3>
+              <p class="timeline-item__desc">{{ job.desc }}</p>
+              <div class="timeline-item__skills">
+                @for (skill of job.skills; track skill) {
+                  <span class="timeline-item__skill">{{ skill }}</span>
+                }
+              </div>
+              @if (job.current) {
+                <span class="timeline-item__badge timeline-item__badge--current">Current</span>
+              }
+              @if (job.type === 'achievement') {
+                <span class="timeline-item__badge timeline-item__badge--cert">Certificate / Achievement</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Right: Education + Tech Stack -->
+    <div class="resume__right">
+      <div class="resume__education">
+        <h3 class="resume__section-title">Education &amp; Certs</h3>
+        @for (edu of education; track edu.degree) {
+          <div class="edu-item glass-card">
+            <div class="edu-item__icon">
+              <iconify-icon icon="ph:graduation-cap-bold" width="18" height="18"></iconify-icon>
+            </div>
+            <div>
+              <p class="edu-item__degree">{{ edu.degree }}</p>
+              <p class="edu-item__school">{{ edu.school }} · {{ edu.year }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="resume__tech">
+        <h3 class="resume__section-title">Tech Stack</h3>
+        <div class="tech-grid">
+          @for (tech of techStack; track tech.name) {
+            <div class="tech-tag" [style.--tc]="tech.color">
+              <iconify-icon [icon]="tech.icon" width="18" height="18"></iconify-icon>
+              <span class="tech-tag__name">{{ tech.name }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

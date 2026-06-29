@@ -1,0 +1,131 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,16,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    gap: 1rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    flex-shrink: 0;
+
+    strong { font-weight: 700; }
+  }
+
+  &__logo-box {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 14px var(--glow-purple);
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: auto;
+  }
+
+  &__link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color var(--transition);
+
+    &:hover  { color: var(--text-primary); }
+    &--active { color: var(--accent); }
+  }
+
+  &__actions { margin-left: 1.5rem; }
+
+  // ─── Hamburger button ─────────────────────────────────────────────────────
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    margin-left: auto;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: transform 0.28s ease, opacity 0.2s ease;
+      transform-origin: center;
+    }
+
+    // Animate to × when open
+    &--open {
+      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+  }
+
+  // ─── Mobile nav drawer ────────────────────────────────────────────────────
+  &__mobile {
+    display: flex;
+    flex-direction: column;
+    background: rgba(8,8,16,0.97);
+    border-top: 1px solid var(--border);
+    animation: slideDown 0.22s ease;
+  }
+
+  &__mobile-link {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    transition: color var(--transition), background var(--transition);
+
+    &:hover {
+      color: var(--text-primary);
+      background: rgba(139,92,246,0.06);
+    }
+  }
+
+  &__mobile-cta {
+    padding: 1.25rem 1.5rem;
+  }
+
+  // ─── Responsive ───────────────────────────────────────────────────────────
+  @media (max-width: 768px) {
+    &__nav, &__actions { display: none; }
+    &__hamburger { display: flex; }
+  }
+
+  @media (min-width: 769px) {
+    &__mobile { display: none; }
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

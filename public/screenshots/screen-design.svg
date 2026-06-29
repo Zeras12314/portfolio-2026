@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480">
+  <!-- Figma-style canvas bg -->
+  <rect width="720" height="480" fill="#1e1e1e"/>
+  <!-- Dot grid -->
+  <defs>
+    <pattern id="dotgrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="0.8" fill="#3a3a3a"/>
+    </pattern>
+  </defs>
+  <rect width="720" height="480" fill="url(#dotgrid)"/>
+
+  <!-- Top toolbar -->
+  <rect width="720" height="44" fill="#2c2c2c"/>
+  <!-- Figma-style logo -->
+  <rect x="12" y="10" width="10" height="10" rx="2" fill="#f24e1e"/>
+  <rect x="24" y="10" width="10" height="10" rx="2" fill="#ff7262"/>
+  <rect x="12" y="22" width="10" height="10" rx="2" fill="#a259ff"/>
+  <rect x="24" y="22" width="10" height="10" rx="2" fill="#1abcfe"/>
+  <!-- Tool icons -->
+  <rect x="52" y="14" width="30" height="16" rx="3" fill="#444"/>
+  <text x="67" y="26" font-family="sans-serif" font-size="10" fill="#ddd" text-anchor="middle">V</text>
+  <rect x="86" y="14" width="30" height="16" rx="3" fill="#444"/>
+  <text x="101" y="26" font-family="sans-serif" font-size="10" fill="#ddd" text-anchor="middle">F</text>
+  <rect x="120" y="14" width="30" height="16" rx="3" fill="#18a0fb" opacity="0.9"/>
+  <text x="135" y="26" font-family="sans-serif" font-size="10" fill="white" text-anchor="middle">R</text>
+  <rect x="154" y="14" width="30" height="16" rx="3" fill="#444"/>
+  <text x="169" y="26" font-family="sans-serif" font-size="10" fill="#ddd" text-anchor="middle">T</text>
+  <!-- Center project name -->
+  <text x="360" y="27" font-family="Inter,sans-serif" font-size="12" fill="#ddd" text-anchor="middle">SaaS Landing Page Design • Design</text>
+  <!-- Right icons -->
+  <rect x="630" y="12" width="70" height="20" rx="10" fill="#18a0fb"/>
+  <text x="665" y="26" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Share</text>
+
+  <!-- Left panel (layers) -->
+  <rect x="0" y="44" width="180" height="436" fill="#2c2c2c"/>
+  <rect x="0" y="44" width="180" height="30" fill="#383838"/>
+  <text x="10" y="64" font-family="Inter,sans-serif" font-size="11" fill="#ddd">Layers</text>
+  <text x="90" y="64" font-family="Inter,sans-serif" font-size="11" fill="#888">Assets</text>
+  <!-- Layer items -->
+  <text x="10" y="92" font-family="Inter,sans-serif" font-size="11" fill="#ccc">▾ Frame 1 – Landing</text>
+  <text x="20" y="110" font-family="Inter,sans-serif" font-size="10" fill="#aaa">▾ Hero Section</text>
+  <text x="32" y="126" font-family="Inter,sans-serif" font-size="10" fill="#18a0fb">  ▭ Headline Group</text>
+  <text x="32" y="142" font-family="Inter,sans-serif" font-size="10" fill="#aaa">  ▭ CTA Buttons</text>
+  <text x="32" y="158" font-family="Inter,sans-serif" font-size="10" fill="#aaa">  ◻ Hero Image</text>
+  <text x="20" y="174" font-family="Inter,sans-serif" font-size="10" fill="#aaa">▸ Features</text>
+  <text x="20" y="190" font-family="Inter,sans-serif" font-size="10" fill="#aaa">▸ Pricing</text>
+  <text x="20" y="206" font-family="Inter,sans-serif" font-size="10" fill="#aaa">▸ Testimonials</text>
+  <text x="20" y="222" font-family="Inter,sans-serif" font-size="10" fill="#aaa">▸ Footer</text>
+  <!-- Vertical divider -->
+  <line x1="180" y1="44" x2="180" y2="480" stroke="#444" stroke-width="1"/>
+
+  <!-- Right panel (properties) -->
+  <rect x="540" y="44" width="180" height="436" fill="#2c2c2c"/>
+  <line x1="540" y1="44" x2="540" y2="480" stroke="#444" stroke-width="1"/>
+  <!-- Design tab -->
+  <rect x="540" y="44" width="180" height="30" fill="#383838"/>
+  <text x="558" y="64" font-family="Inter,sans-serif" font-size="11" fill="#ddd">Design</text>
+  <text x="620" y="64" font-family="Inter,sans-serif" font-size="11" fill="#888">Prototype</text>
+  <!-- Properties -->
+  <text x="552" y="92" font-family="Inter,sans-serif" font-size="10" fill="#888">X</text>
+  <rect x="570" y="80" width="48" height="18" rx="3" fill="#383838" stroke="#555" stroke-width="0.5"/>
+  <text x="594" y="92" font-family="Inter,sans-serif" font-size="10" fill="#ddd" text-anchor="middle">240</text>
+  <text x="626" y="92" font-family="Inter,sans-serif" font-size="10" fill="#888">Y</text>
+  <rect x="638" y="80" width="48" height="18" rx="3" fill="#383838" stroke="#555" stroke-width="0.5"/>
+  <text x="662" y="92" font-family="Inter,sans-serif" font-size="10" fill="#ddd" text-anchor="middle">80</text>
+  <text x="552" y="114" font-family="Inter,sans-serif" font-size="10" fill="#888">W</text>
+  <rect x="570" y="102" width="48" height="18" rx="3" fill="#383838" stroke="#555" stroke-width="0.5"/>
+  <text x="594" y="114" font-family="Inter,sans-serif" font-size="10" fill="#ddd" text-anchor="middle">680</text>
+  <text x="626" y="114" font-family="Inter,sans-serif" font-size="10" fill="#888">H</text>
+  <rect x="638" y="102" width="48" height="18" rx="3" fill="#383838" stroke="#555" stroke-width="0.5"/>
+  <text x="662" y="114" font-family="Inter,sans-serif" font-size="10" fill="#ddd" text-anchor="middle">60</text>
+  <!-- Fill section -->
+  <text x="552" y="140" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#ddd">Fill</text>
+  <rect x="552" y="148" width="16" height="16" rx="3" fill="#a259ff"/>
+  <text x="574" y="161" font-family="Inter,sans-serif" font-size="10" fill="#ddd">A259FF</text>
+  <text x="660" y="161" font-family="Inter,sans-serif" font-size="10" fill="#888">100%</text>
+  <!-- Stroke section -->
+  <text x="552" y="182" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#ddd">Stroke</text>
+  <rect x="552" y="190" width="16" height="16" rx="3" fill="none" stroke="#555" stroke-width="1"/>
+  <text x="574" y="202" font-family="Inter,sans-serif" font-size="10" fill="#888">—</text>
+  <!-- Effects -->
+  <text x="552" y="224" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#ddd">Effects</text>
+  <text x="552" y="242" font-family="Inter,sans-serif" font-size="10" fill="#888">Drop Shadow</text>
+  <text x="680" y="242" font-family="Inter,sans-serif" font-size="10" fill="#18a0fb">+</text>
+
+  <!-- Main canvas: Design frames -->
+  <!-- Frame 1: Landing page hero -->
+  <rect x="210" y="70" width="300" height="200" rx="4" fill="white" stroke="#555" stroke-width="1"/>
+  <!-- Selection highlight -->
+  <rect x="207" y="67" width="306" height="206" rx="5" fill="none" stroke="#18a0fb" stroke-width="2"/>
+  <!-- Handles -->
+  <rect x="205" y="65" width="8" height="8" rx="1" fill="white" stroke="#18a0fb" stroke-width="1.5"/>
+  <rect x="357" y="65" width="8" height="8" rx="1" fill="white" stroke="#18a0fb" stroke-width="1.5"/>
+  <rect x="205" y="269" width="8" height="8" rx="1" fill="white" stroke="#18a0fb" stroke-width="1.5"/>
+  <rect x="357" y="269" width="8" height="8" rx="1" fill="white" stroke="#18a0fb" stroke-width="1.5"/>
+  <!-- Nav bar in frame -->
+  <rect x="210" y="70" width="300" height="24" fill="#f8f9fa"/>
+  <rect x="220" y="80" width="40" height="6" rx="3" fill="#a259ff"/>
+  <rect x="370" y="80" width="30" height="6" rx="3" fill="#dee2e6"/>
+  <rect x="405" y="80" width="30" height="6" rx="3" fill="#dee2e6"/>
+  <rect x="440" y="76" width="36" height="14" rx="7" fill="#a259ff"/>
+  <!-- Hero content -->
+  <rect x="224" y="108" width="130" height="10" rx="5" fill="#1a1a2e"/>
+  <rect x="224" y="122" width="100" height="10" rx="5" fill="#1a1a2e"/>
+  <rect x="224" y="136" width="120" height="10" rx="5" fill="#1a1a2e"/>
+  <rect x="224" y="154" width="140" height="8" rx="4" fill="#dee2e6"/>
+  <rect x="224" y="166" width="110" height="8" rx="4" fill="#dee2e6"/>
+  <rect x="224" y="184" width="70" height="20" rx="10" fill="#a259ff"/>
+  <rect x="300" y="184" width="60" height="20" rx="10" fill="none" stroke="#a259ff" stroke-width="1.5"/>
+  <!-- Hero image placeholder -->
+  <rect x="380" y="104" width="116" height="140" rx="6" fill="#f0ebff"/>
+  <ellipse cx="438" cy="144" rx="35" ry="35" fill="#a259ff" opacity="0.2"/>
+  <ellipse cx="438" cy="144" rx="20" ry="20" fill="#a259ff" opacity="0.4"/>
+
+  <!-- Frame 2: Components / Mobile -->
+  <rect x="526" y="70" width="130" height="220" rx="4" fill="white" stroke="#555" stroke-width="1"/>
+  <text x="591" y="64" font-family="Inter,sans-serif" font-size="10" fill="#888" text-anchor="middle">Mobile</text>
+  <!-- Mobile nav -->
+  <rect x="526" y="70" width="130" height="20" fill="#f8f9fa"/>
+  <rect x="536" y="78" width="30" height="5" rx="2" fill="#a259ff"/>
+  <rect x="622" y="74" width="12" height="2" rx="1" fill="#888"/>
+  <rect x="622" y="78" width="12" height="2" rx="1" fill="#888"/>
+  <rect x="622" y="82" width="12" height="2" rx="1" fill="#888"/>
+  <!-- Mobile hero -->
+  <rect x="534" y="100" width="114" height="80" rx="6" fill="#f0ebff"/>
+  <ellipse cx="591" cy="140" rx="28" ry="28" fill="#a259ff" opacity="0.2"/>
+  <ellipse cx="591" cy="140" rx="16" ry="16" fill="#a259ff" opacity="0.45"/>
+  <rect x="534" y="192" width="90" height="7" rx="3" fill="#1a1a2e"/>
+  <rect x="534" y="204" width="70" height="7" rx="3" fill="#dee2e6"/>
+  <rect x="534" y="220" width="55" height="16" rx="8" fill="#a259ff"/>
+
+  <!-- Frame 3: Color palette card (below) -->
+  <rect x="210" y="290" width="140" height="100" rx="4" fill="white" stroke="#555" stroke-width="1"/>
+  <text x="220" y="308" font-family="Inter,sans-serif" font-size="10" fill="#888">Color Styles</text>
+  <rect x="220" y="316" width="22" height="22" rx="4" fill="#a259ff"/>
+  <rect x="246" y="316" width="22" height="22" rx="4" fill="#1abcfe"/>
+  <rect x="272" y="316" width="22" height="22" rx="4" fill="#f24e1e"/>
+  <rect x="298" y="316" width="22" height="22" rx="4" fill="#0acf83"/>
+  <rect x="220" y="342" width="22" height="22" rx="4" fill="#ff7262"/>
+  <rect x="246" y="342" width="22" height="22" rx="4" fill="#ffed4a"/>
+  <rect x="272" y="342" width="22" height="22" rx="4" fill="#1a1a2e"/>
+  <rect x="298" y="342" width="22" height="22" rx="4" fill="#f0ebff"/>
+  <rect x="220" y="368" width="118" height="14" rx="3" fill="#f0f0f0"/>
+
+  <!-- Frame 4: Typography card -->
+  <rect x="364" y="290" width="148" height="100" rx="4" fill="white" stroke="#555" stroke-width="1"/>
+  <text x="374" y="308" font-family="Inter,sans-serif" font-size="10" fill="#888">Typography</text>
+  <text x="374" y="330" font-family="Inter,sans-serif" font-size="18" font-weight="700" fill="#1a1a2e">Aa</text>
+  <text x="374" y="348" font-family="Inter,sans-serif" font-size="11" fill="#a259ff">Inter / Space Grotesk</text>
+  <rect x="374" y="358" width="80" height="5" rx="2" fill="#dee2e6"/>
+  <rect x="374" y="366" width="60" height="5" rx="2" fill="#dee2e6"/>
+  <rect x="374" y="374" width="100" height="5" rx="2" fill="#dee2e6"/>
+
+  <!-- Zoom indicator -->
+  <rect x="300" y="452" width="80" height="22" rx="11" fill="#383838" stroke="#555" stroke-width="0.5"/>
+  <text x="340" y="467" font-family="Inter,sans-serif" font-size="11" fill="#ddd" text-anchor="middle">75%</text>
+</svg>

@@ -1,0 +1,58 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+
+    strong { font-weight: 700; }
+  }
+
+  &__logo-box {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px var(--glow-purple);
+  }
+
+  &__copy {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+
+      &:hover { color: var(--accent); }
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__inner { flex-direction: column; text-align: center; }
+    &__links { justify-content: center; }
+  }
+}
