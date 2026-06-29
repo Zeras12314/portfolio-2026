@@ -11,19 +11,19 @@ export class Contact {
   infoCards = [
     {
       label: 'Phone',
-      value: '+1 (555) 000-0000',
-      href: 'tel:+15550000000',
+      value: '+63 939 485 7179',
+      href: 'tel:+639394857179',
       icon: 'ph:phone-bold',
     },
     {
       label: 'Email',
-      value: 'hello@devfolio.dev',
-      href: 'mailto:hello@devfolio.dev',
+      value: 'tiongsongerson@gmail.com',
+      href: 'mailto:tiongsongerson@gmail.com',
       icon: 'ph:envelope-bold',
     },
     {
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Olongapo City, Zambales, Philippines',
       href: '#',
       icon: 'ph:map-pin-bold',
     },
@@ -36,5 +36,5 @@ export class Contact {
     { name: 'Dribbble',   handle: '@johndoe',  href: '#', color: '#ea4c89', icon: 'mdi:dribbble'   },
   ];
 
-  openTo = ['Freelance Projects', 'Full-time Roles', 'Consulting', 'Open Source'];
+  openTo = ['Full-time Roles', 'Freelance Projects', 'Cross-functional Work'];
 }

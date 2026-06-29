@@ -41,6 +41,8 @@ const T: Record<string, Tech> = {
   xd:          { name: 'Adobe XD',     icon: 'logos:adobe-xd'         },
   illustrator: { name: 'Illustrator',  icon: 'logos:adobe-illustrator' },
   storybook:   { name: 'Storybook',    icon: 'logos:storybook-icon'    },
+  ngrx:        { name: 'NgRx',         icon: 'simple-icons:ngrx'       },
+  express:     { name: 'Express.js',   icon: 'simple-icons:express'    },
 };
 
 @Component({
@@ -57,16 +59,16 @@ export class Projects {
   allProjects: Project[] = [
     // ─── Fullstack ───────────────────────────────────────────────────────────
     {
-      title: 'Analytics Dashboard',
-      desc: 'Real-time data visualisation platform with custom chart components, live WebSocket feeds, and role-based access control.',
-      tech: [T['angular'], T['d3'], T['node'], T['postgres']],
+      title: 'YelpCamp',
+      desc: 'Full-stack campground discovery and review platform with interactive maps — browse, review, and share camping locations with secure authentication and image uploads.',
+      tech: [T['angular'], T['ngrx'], T['node'], T['mongo']],
       category: 'Fullstack',
-      year: 2024,
+      year: 2026,
       isRecent: true,
-      status: 'ongoing',
-      screenshots: ['screenshots/screen-dash.svg', 'screenshots/screen-auth.svg'],
-      githubUrl: '#',
-      liveUrl: '#',
+      status: 'completed',
+      screenshots: ['screenshots/yelpcamp-home.jpg', 'screenshots/yelpcamp-campgrounds.jpg', 'screenshots/yelpcamp-detail.jpg'],
+      githubUrl: 'https://github.com/Zeras12314/yelpcamp',
+      liveUrl: 'https://yelpcamp-5u6m.onrender.com/',
     },
     {
       title: 'E-Commerce Platform',

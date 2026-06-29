@@ -8,7 +8,7 @@
 
       <div class="resume__timeline">
         @for (job of experiences; track job.company) {
-          <div class="timeline-item" [class.timeline-item--current]="job.current" [class.timeline-item--achievement]="job.type === 'achievement'">
+          <div class="timeline-item" [class.timeline-item--current]="job.current">
             <div class="timeline-item__dot"></div>
             <div class="timeline-item__card glass-card">
               <div class="timeline-item__meta">
@@ -16,17 +16,46 @@
                 <span class="timeline-item__period">{{ job.period }}</span>
               </div>
               <h3 class="timeline-item__role">{{ job.role }}</h3>
-              <p class="timeline-item__desc">{{ job.desc }}</p>
-              <div class="timeline-item__skills">
-                @for (skill of job.skills; track skill) {
-                  <span class="timeline-item__skill">{{ skill }}</span>
+
+              @if (job.desc) {
+                <p class="timeline-item__desc">{{ job.desc }}</p>
+              }
+
+              @if (job.bullets) {
+                <ul class="timeline-item__bullets">
+                  @for (b of job.bullets; track b) {
+                    <li>{{ b }}</li>
+                  }
+                </ul>
+              }
+
+              @if (job.projects) {
+                <button class="timeline-item__more-btn" type="button" (click)="toggleExpand(job.company)">
+                  {{ isExpanded(job.company) ? 'View Less' : 'View More' }}
+                  <iconify-icon [icon]="isExpanded(job.company) ? 'ph:caret-up-bold' : 'ph:caret-down-bold'" width="12" height="12"></iconify-icon>
+                </button>
+
+                @if (isExpanded(job.company)) {
+                  <div class="timeline-item__projects">
+                    @for (proj of job.projects; track proj.name) {
+                      <div class="project-block">
+                        <div class="project-block__head">
+                          <span class="project-block__name">{{ proj.name }}</span>
+                          <span class="project-block__period">{{ proj.period }}</span>
+                        </div>
+                        <ul class="project-block__bullets">
+                          @for (b of proj.bullets; track b) {
+                            <li>{{ b }}</li>
+                          }
+                        </ul>
+                      </div>
+                    }
+                  </div>
                 }
-              </div>
+              }
+
               @if (job.current) {
                 <span class="timeline-item__badge timeline-item__badge--current">Current</span>
-              }
-              @if (job.type === 'achievement') {
-                <span class="timeline-item__badge timeline-item__badge--cert">Certificate / Achievement</span>
               }
             </div>
           </div>
@@ -34,10 +63,10 @@
       </div>
     </div>
 
-    <!-- Right: Education + Tech Stack -->
+    <!-- Right: Education + Certificates + Tech Stack -->
     <div class="resume__right">
       <div class="resume__education">
-        <h3 class="resume__section-title">Education &amp; Certs</h3>
+        <h3 class="resume__section-title">Education</h3>
         @for (edu of education; track edu.degree) {
           <div class="edu-item glass-card">
             <div class="edu-item__icon">
@@ -45,7 +74,42 @@
             </div>
             <div>
               <p class="edu-item__degree">{{ edu.degree }}</p>
-              <p class="edu-item__school">{{ edu.school }} · {{ edu.year }}</p>
+              <p class="edu-item__school">{{ edu.school }}</p>
+              @if (edu.formerly) {
+                <p class="edu-item__note">{{ edu.formerly }}</p>
+              }
+              <p class="edu-item__year">{{ edu.year }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="resume__certs">
+        <h3 class="resume__section-title">Professional Highlights</h3>
+        @for (cert of certifications; track cert.title) {
+          <div class="edu-item glass-card">
+            <div class="edu-item__icon edu-item__icon--cert">
+              <iconify-icon icon="ph:certificate-bold" width="18" height="18"></iconify-icon>
+            </div>
+            <div>
+              <p class="edu-item__degree">{{ cert.title }}</p>
+              <p class="edu-item__school">{{ cert.issuer }} · {{ cert.period }}</p>
+              <p class="edu-item__desc">{{ cert.desc }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="resume__courses">
+        <h3 class="resume__section-title">Udemy Courses</h3>
+        @for (course of courses; track course.title) {
+          <div class="edu-item glass-card">
+            <div class="edu-item__icon edu-item__icon--cert">
+              <iconify-icon icon="ph:certificate-bold" width="18" height="18"></iconify-icon>
+            </div>
+            <div>
+              <p class="edu-item__degree">{{ course.title }}</p>
+              <p class="edu-item__school">{{ course.issuer }} · {{ course.period }}</p>
             </div>
           </div>
         }
@@ -56,8 +120,20 @@
         <div class="tech-grid">
           @for (tech of techStack; track tech.name) {
             <div class="tech-tag" [style.--tc]="tech.color">
-              <iconify-icon [icon]="tech.icon" width="18" height="18"></iconify-icon>
+              <iconify-icon [icon]="tech.icon" [style.color]="tech.color" width="18" height="18"></iconify-icon>
               <span class="tech-tag__name">{{ tech.name }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="resume__tools">
+        <h3 class="resume__section-title">Tools &amp; Platforms</h3>
+        <div class="tech-grid">
+          @for (tool of tools; track tool.name) {
+            <div class="tech-tag" [style.--tc]="tool.color">
+              <iconify-icon [icon]="tool.icon" [style.color]="tool.color" width="18" height="18"></iconify-icon>
+              <span class="tech-tag__name">{{ tool.name }}</span>
             </div>
           }
         </div>

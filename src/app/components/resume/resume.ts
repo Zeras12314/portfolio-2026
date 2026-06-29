@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
 
 @Component({
   selector: 'app-resume',
@@ -8,72 +8,157 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   styleUrl: './resume.scss',
 })
 export class Resume {
+  expandedJob = signal<string | null>(null);
+
+  toggleExpand(company: string) {
+    this.expandedJob.update(current => (current === company ? null : company));
+  }
+
+  isExpanded(company: string) {
+    return this.expandedJob() === company;
+  }
+
   experiences = [
     {
-      company: 'TechCorp Inc.',
-      role: 'Senior Full Stack Developer',
-      period: 'Mar 2022 – Present',
-      desc: 'Leading a team of 6 engineers building a SaaS analytics platform serving 200K+ users. Architected the micro-frontend migration and reduced build times by 60%.',
-      skills: ['Angular', 'Node.js', 'AWS', 'PostgreSQL'],
+      company: 'Accenture Philippines',
+      role: 'Advanced App Engineering Analyst',
+      period: 'Aug 2023 – Present',
+      desc: 'Working across three consecutive e-commerce projects — building reactive Angular components, integrating with Hybris and Impex, and supporting global go-live cycles from development through production support.',
       current: true,
-      type: 'work',
+      projects: [
+        {
+          name: 'Project 3',
+          period: 'April 2026 – Present',
+          bullets: [
+            'Develop and implement reusable Angular components to improve scalability and maintainability',
+            'Write and maintain unit test cases using Jest to ensure code quality and reliability',
+            'Collaborate with cross-functional global teams in daily stand-ups and agile ceremonies',
+            'Participate in code reviews to enforce coding standards and best practices',
+            'Use Jira and Confluence for task tracking, documentation, and team collaboration',
+          ],
+        },
+        {
+          name: 'Project 2',
+          period: 'March 2024 – April 2026',
+          bullets: [
+            'Contributed to the development of an e-commerce platform using Angular, Hybris, and Impex',
+            'Built reactive and scalable front-end solutions using RxJS, NgRx, and Angular Signals',
+            'Applied modular architecture and best practices to deliver maintainable and efficient code',
+            'Conducted Knowledge Transfer (KT) sessions to onboard new team members',
+            'Collaborated with global teams across multiple time zones to meet project deadlines',
+            'Managed go-live deployments across different regions, ensuring smooth releases',
+            'Resolved critical production issues and optimized application performance',
+            'Worked closely with backend developers, QA, BAs, and Scrum Masters to deliver Jira tasks on time',
+            'Maintained technical documentation using Confluence',
+            'Provided post-go-live support to ensure system stability and performance',
+            'Integrated third-party APIs and handled asynchronous data flows using RxJS',
+            'Actively participated in agile ceremonies including stand-ups, sprint reviews, and retrospectives',
+          ],
+        },
+        {
+          name: 'Project 1',
+          period: 'August 2023 – March 2024',
+          bullets: [
+            'Developed, tested, and debugged Angular applications',
+            'Created and executed test cases to ensure application reliability',
+            'Built reusable Angular components to support scalability and consistency',
+            'Participated in code reviews to maintain code quality and adherence to standards',
+          ],
+        },
+      ],
     },
     {
-      company: 'StartupXYZ',
-      role: 'Full Stack Developer',
-      period: 'Jan 2020 – Feb 2022',
-      desc: 'Built the core product from 0 to 1 — REST API, React frontend, mobile app, and CI/CD pipeline. Scaled to Series A with 50K monthly active users.',
-      skills: ['React', 'Python', 'Docker', 'Redis'],
+      company: 'Grosvik Philippines',
+      role: 'Junior Angular Developer',
+      period: 'Jul 2021 – Aug 2023',
+      bullets: [
+        'Developed, tested, and debugged Angular applications for scalable web solutions',
+        'Designed and implemented responsive UI based on Adobe XD, Photoshop, and Illustrator',
+        'Translated design concepts into reusable Angular components with clean code',
+        'Collaborated using GitHub for version control and team workflows',
+        'Applied best practices for performance optimization and maintainability',
+      ],
       current: false,
-      type: 'work',
     },
     {
-      company: 'Anthropic · Aligner Platform',
-      role: 'Claude Code AI Trainer',
-      period: '2024',
-      desc: 'Participated as an AI trainer for Anthropic\'s Claude Code model on the Aligner platform — evaluating, rating, and providing structured feedback on code generation outputs to improve model quality.',
-      skills: ['Prompt Engineering', 'Code Review', 'AI Evaluation'],
+      company: 'Senior High School',
+      role: 'Computer Programming Instructor',
+      period: '2019 – 2022',
+      desc: 'Taught computer-related subjects to senior high school students, including programming fundamentals, computer systems, and applied computer science concepts.',
       current: false,
-      type: 'achievement',
-    },
-    {
-      company: 'Meta · Coursera',
-      role: 'Full Stack Developer Certificate',
-      period: '2023',
-      desc: 'Completed the Meta Full Stack Developer Professional Certificate — covering React, Node.js, REST APIs, database design, and deployment pipelines across 9 courses.',
-      skills: ['React', 'Node.js', 'REST API', 'MySQL'],
-      current: false,
-      type: 'achievement',
     },
     {
       company: 'Freelance',
       role: 'Web Developer',
-      period: '2018 – 2020',
-      desc: 'Delivered 30+ client projects including e-commerce stores, landing pages, and custom dashboards for SMBs across various industries.',
-      skills: ['Vue.js', 'Laravel', 'MySQL'],
+      period: 'Ongoing',
+      desc: 'Designed and built client websites, hand-coded and via CMS platforms including Wix, WordPress, and Squarespace.',
       current: false,
-      type: 'work',
     },
   ];
 
   education = [
-    { degree: 'B.Sc. Computer Science',    school: 'State University',     year: '2018' },
-    { degree: 'AWS Solutions Architect',   school: 'Amazon Web Services',  year: '2021' },
-    { degree: 'Google Cloud Professional', school: 'Google',               year: '2023' },
+    {
+      degree: 'BS Computer Engineering',
+      school: 'President Ramon Magsaysay State University',
+      formerly: '(formerly Ramon Magsaysay Technological University, renamed in 2018)',
+      year: '2013 – 2019',
+    },
+  ];
+
+  certifications = [
+    {
+      title: 'Full Stack Developer Certification',
+      issuer: 'Accenture Song',
+      period: 'June 2026',
+      desc: 'Passed Accenture Song\'s Full Stack Developer certification, building an end-to-end application with Angular, Java Spring Boot, and PostgreSQL, and implementing OAuth2 for security as a project requirement.',
+    },
+    {
+      title: 'Claude Code AI Trainer',
+      issuer: 'Anthropic · Aligner Platform',
+      period: '2026',
+      desc: 'Participated as an AI trainer for Anthropic\'s Claude Code model on the Aligner platform — evaluating, rating, and providing structured feedback on code generation outputs to improve model quality.',
+    },
+    {
+      title: 'Skill Certification: JavaScript & Front-End Development',
+      issuer: 'Upwork',
+      period: 'August 2024',
+      desc: 'Earned Upwork\'s verified skill certification in JavaScript and Front-End Development, validating core front-end engineering proficiency.',
+    },
+  ];
+
+  courses = [
+    { title: 'Java Spring Framework, Spring Boot', issuer: 'Udemy', period: '2026' },
+    { title: 'RxJS in Practice', issuer: 'Udemy', period: '2026' },
+    { title: 'Reactive Angular Course, with RxJS', issuer: 'Udemy', period: '2026' },
   ];
 
   techStack = [
-    { name: 'TypeScript', icon: 'logos:typescript-icon', color: '#3178c6' },
-    { name: 'Angular',    icon: 'logos:angular-icon',    color: '#dd0031' },
-    { name: 'React',      icon: 'logos:react',           color: '#61dafb' },
-    { name: 'Next.js',    icon: 'logos:nextjs-icon',     color: '#94a3b8' },
-    { name: 'Node.js',    icon: 'logos:nodejs-icon',     color: '#339933' },
-    { name: 'Python',     icon: 'logos:python',          color: '#3776ab' },
-    { name: 'PostgreSQL', icon: 'logos:postgresql',      color: '#4169e1' },
-    { name: 'MongoDB',    icon: 'logos:mongodb-icon',    color: '#47a248' },
-    { name: 'Docker',     icon: 'logos:docker-icon',     color: '#2496ed' },
-    { name: 'AWS',        icon: 'logos:aws',             color: '#ff9900' },
-    { name: 'GraphQL',    icon: 'logos:graphql',         color: '#e10098' },
-    { name: 'Redis',      icon: 'logos:redis',           color: '#dc382d' },
+    { name: 'Angular',     icon: 'logos:angular-icon',     color: '#dd0031' },
+    { name: 'TypeScript',  icon: 'logos:typescript-icon',  color: '#3178c6' },
+    { name: 'JavaScript',  icon: 'logos:javascript',       color: '#f7df1e' },
+    { name: 'RxJS',        icon: 'logos:reactivex',        color: '#b7178c' },
+    { name: 'NgRx',        icon: 'simple-icons:ngrx',      color: '#ba2bd2' },
+    { name: 'Java',        icon: 'logos:java',             color: '#ed8b00' },
+    { name: 'Spring Boot', icon: 'logos:spring-icon',      color: '#6db33f' },
+    { name: 'Node.js',     icon: 'logos:nodejs-icon',      color: '#339933' },
+    { name: 'Express.js',  icon: 'simple-icons:express',   color: '#ffffff' },
+    { name: 'PostgreSQL',  icon: 'logos:postgresql',       color: '#4169e1' },
+    { name: 'MongoDB',     icon: 'logos:mongodb-icon',     color: '#47a248' },
+    { name: 'SCSS',        icon: 'logos:sass',             color: '#cc6699' },
+    { name: 'Bootstrap',   icon: 'logos:bootstrap',        color: '#7952b3' },
+    { name: 'Material',    icon: 'simple-icons:materialdesign', color: '#3f51b5' },
+    { name: 'PrimeNG',     icon: 'simple-icons:primeng',   color: '#0ea5e9' },
+  ];
+
+  tools = [
+    { name: 'Git',          icon: 'logos:git-icon',           color: '#f05032' },
+    { name: 'Jira',         icon: 'logos:jira',               color: '#0052cc' },
+    { name: 'Confluence',   icon: 'logos:confluence',         color: '#172b4d' },
+    { name: 'Figma',        icon: 'logos:figma',              color: '#f24e1e' },
+    { name: 'Adobe XD',     icon: 'logos:adobe-xd',           color: '#ff61f6' },
+    { name: 'Photoshop',    icon: 'logos:adobe-photoshop',    color: '#31a8ff' },
+    { name: 'Illustrator',  icon: 'logos:adobe-illustrator',  color: '#ff9a00' },
+    { name: 'Wix',          icon: 'logos:wix',                color: '#0c6ebd' },
+    { name: 'WordPress',    icon: 'logos:wordpress-icon',     color: '#21759b' },
   ];
 }
