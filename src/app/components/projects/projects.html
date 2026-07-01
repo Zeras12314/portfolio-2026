@@ -22,7 +22,7 @@
         <article class="project-card glass-card" [class.project-card--recent]="proj.isRecent">
 
           <!-- Preview / Slider area -->
-          <div class="project-card__preview">
+          <div class="project-card__preview" (click)="openLightbox(proj.screenshots)">
             <div
               class="proj-slider"
               [class.proj-slider--multi]="proj.screenshots.length > 1"
@@ -64,7 +64,7 @@
             <div class="project-card__tech">
               @for (t of proj.tech; track t.name) {
                 <span class="tech-icon" [attr.data-tooltip]="t.name">
-                  <iconify-icon [icon]="t.icon" width="20" height="20"></iconify-icon>
+                  <iconify-icon [icon]="t.icon" [style.color]="t.color" width="20" height="20"></iconify-icon>
                 </span>
               }
             </div>
@@ -92,4 +92,41 @@
       }
     </div>
   </div>
+
+  <!-- ─── Lightbox ──────────────────────────────────────────────────── -->
+  @if (lightboxOpen()) {
+    <div class="lightbox" (click)="closeLightbox()">
+      <button class="lightbox__close" type="button" (click)="closeLightbox()" aria-label="Close">
+        <iconify-icon icon="ph:x-bold" width="20" height="20"></iconify-icon>
+      </button>
+
+      <div class="lightbox__box" (click)="$event.stopPropagation()">
+        <img
+          [src]="lightboxImages()[lightboxIndex()]"
+          class="lightbox__img"
+          alt="Project screenshot">
+
+        @if (lightboxImages().length > 1) {
+          <button class="lightbox__nav lightbox__nav--prev" type="button" (click)="prevImage()" aria-label="Previous">
+            <iconify-icon icon="ph:caret-left-bold" width="22" height="22"></iconify-icon>
+          </button>
+          <button class="lightbox__nav lightbox__nav--next" type="button" (click)="nextImage()" aria-label="Next">
+            <iconify-icon icon="ph:caret-right-bold" width="22" height="22"></iconify-icon>
+          </button>
+
+          <div class="lightbox__dots">
+            @for (img of lightboxImages(); track img; let i = $index) {
+              <button
+                class="lightbox__dot"
+                type="button"
+                [class.lightbox__dot--active]="i === lightboxIndex()"
+                (click)="lightboxIndex.set(i)"
+                [attr.aria-label]="'View screenshot ' + (i + 1)">
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  }
 </section>

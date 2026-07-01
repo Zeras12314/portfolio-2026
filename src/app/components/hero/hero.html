@@ -9,17 +9,18 @@
     <div class="hero__content">
       <span class="hero__chip">
         <span class="hero__chip-dot"></span>
-        Available for freelance
+        Open to new opportunities
       </span>
 
       <h1 class="hero__heading">
         Full Stack<br>
-        <span class="glow-text">Developer</span>
+        <span class="glow-text">Engineer</span>
       </h1>
 
       <p class="hero__sub">
-        Building scalable web applications and crafting seamless digital
-        experiences — from pixel-perfect UIs to robust back-end systems.
+        Angular specialist with 5+ years of front-end experience, now a
+        certified Full Stack Developer — building end-to-end applications
+        with Angular, Java Spring Boot, Node.js, PostgreSQL, and MongoDB.
       </p>
 
       <div class="hero__actions">
@@ -27,11 +28,26 @@
         <a href="#contact" class="btn btn--ghost">Let's Talk</a>
       </div>
 
+      <div class="hero__utility">
+        <a href="Gerson_Tiongson_CV_2026.pdf" download class="hero__utility-link">
+          <iconify-icon icon="ph:download-simple-bold" width="14" height="14"></iconify-icon>
+          Download CV
+        </a>
+        <span class="hero__utility-divider"></span>
+        <a href="https://www.linkedin.com/in/gerson-tiongson/" target="_blank" rel="noopener" class="hero__utility-link">
+          <iconify-icon icon="mdi:linkedin" width="14" height="14" style="color:#0077b5"></iconify-icon>
+          LinkedIn
+        </a>
+      </div>
+
       <div class="hero__stack">
         <span class="hero__stack-label">Tech Stack</span>
         <div class="hero__stack-tags">
-          @for (tech of techStack; track tech) {
-            <span class="hero__tag">{{ tech }}</span>
+          @for (tech of techStack; track tech.name) {
+            <span class="hero__tag" [style.--tc]="tech.color">
+              <iconify-icon [icon]="tech.icon" [style.color]="tech.color" width="14" height="14"></iconify-icon>
+              {{ tech.name }}
+            </span>
           }
         </div>
       </div>
@@ -53,12 +69,19 @@
 
       <!-- Floating stat cards -->
       <div class="hero__stat hero__stat--tl glass-card">
-        <span class="hero__stat-val">150+</span>
-        <span class="hero__stat-key">Projects</span>
+        <span class="hero__stat-val">7+ YRS</span>
+        <span class="hero__stat-key">Relevant Work Experience</span>
+      </div>
+      <div class="hero__stat hero__stat--rm glass-card">
+        <span class="hero__stat-val">
+          <iconify-icon icon="ph:globe-hemisphere-west-bold" width="16" height="16"></iconify-icon>
+          Global
+        </span>
+        <span class="hero__stat-key">Team Collaboration</span>
       </div>
       <div class="hero__stat hero__stat--br glass-card">
-        <span class="hero__stat-val">5 YRS</span>
-        <span class="hero__stat-key">Experience</span>
+        <span class="hero__stat-val">5+ YRS</span>
+        <span class="hero__stat-key">Web Development</span>
       </div>
 
       <!-- Floating dot decorations -->
