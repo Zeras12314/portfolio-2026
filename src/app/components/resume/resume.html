@@ -5,6 +5,10 @@
     <div class="resume__experience">
       <p class="eyebrow">Career</p>
       <h2 class="resume__title">Experience &amp; <span class="glow-text">Highlights</span></h2>
+      <a href="Gerson_Tiongson_CV_2026.pdf" download class="btn btn--ghost resume__download-btn">
+        <iconify-icon icon="ph:download-simple-bold" width="15" height="15"></iconify-icon>
+        Download Full Resume
+      </a>
 
       <div class="resume__timeline">
         @for (job of experiences; track job.company) {
@@ -30,28 +34,21 @@
               }
 
               @if (job.projects) {
-                <button class="timeline-item__more-btn" type="button" (click)="toggleExpand(job.company)">
-                  {{ isExpanded(job.company) ? 'View Less' : 'View More' }}
-                  <iconify-icon [icon]="isExpanded(job.company) ? 'ph:caret-up-bold' : 'ph:caret-down-bold'" width="12" height="12"></iconify-icon>
-                </button>
-
-                @if (isExpanded(job.company)) {
-                  <div class="timeline-item__projects">
-                    @for (proj of job.projects; track proj.name) {
-                      <div class="project-block">
-                        <div class="project-block__head">
-                          <span class="project-block__name">{{ proj.name }}</span>
-                          <span class="project-block__period">{{ proj.period }}</span>
-                        </div>
-                        <ul class="project-block__bullets">
-                          @for (b of proj.bullets; track b) {
-                            <li>{{ b }}</li>
-                          }
-                        </ul>
+                <div class="timeline-item__projects">
+                  @for (proj of job.projects; track proj.name) {
+                    <div class="project-block">
+                      <div class="project-block__head">
+                        <span class="project-block__name">{{ proj.name }}</span>
+                        <span class="project-block__period">{{ proj.period }}</span>
                       </div>
-                    }
-                  </div>
-                }
+                      <ul class="project-block__bullets">
+                        @for (b of proj.bullets; track b) {
+                          <li>{{ b }}</li>
+                        }
+                      </ul>
+                    </div>
+                  }
+                </div>
               }
 
               @if (job.current) {
@@ -63,7 +60,7 @@
       </div>
     </div>
 
-    <!-- Right: Education + Certificates + Tech Stack -->
+    <!-- Right: Education + Certificates + Courses + Tech Stack + Tools -->
     <div class="resume__right">
       <div class="resume__education">
         <h3 class="resume__section-title">Education</h3>
@@ -94,7 +91,13 @@
             <div>
               <p class="edu-item__degree">{{ cert.title }}</p>
               <p class="edu-item__school">{{ cert.issuer }} · {{ cert.period }}</p>
-              <p class="edu-item__desc">{{ cert.desc }}</p>
+              @if (cert.bullets) {
+                <ul class="edu-item__bullets">
+                  @for (b of cert.bullets; track b) {
+                    <li>{{ b }}</li>
+                  }
+                </ul>
+              }
             </div>
           </div>
         }

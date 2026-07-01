@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @Component({
   selector: 'app-resume',
@@ -8,60 +8,46 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, signal } from '@angular/core';
   styleUrl: './resume.scss',
 })
 export class Resume {
-  expandedJob = signal<string | null>(null);
-
-  toggleExpand(company: string) {
-    this.expandedJob.update(current => (current === company ? null : company));
-  }
-
-  isExpanded(company: string) {
-    return this.expandedJob() === company;
-  }
-
   experiences = [
     {
       company: 'Accenture Philippines',
       role: 'Advanced App Engineering Analyst',
       period: 'Aug 2023 – Present',
-      desc: 'Working across three consecutive e-commerce projects — building reactive Angular components, integrating with Hybris and Impex, and supporting global go-live cycles from development through production support.',
+      desc: 'Contributed across multiple projects, including internal applications and a global client engagement.',
       current: true,
       projects: [
         {
-          name: 'Project 3',
+          name: 'Accenture Internal Application – Project A',
           period: 'April 2026 – Present',
           bullets: [
             'Develop and implement reusable Angular components to improve scalability and maintainability',
             'Write and maintain unit test cases using Jest to ensure code quality and reliability',
             'Collaborate with cross-functional global teams in daily stand-ups and agile ceremonies',
             'Participate in code reviews to enforce coding standards and best practices',
-            'Use Jira and Confluence for task tracking, documentation, and team collaboration',
+            'Utilize Jira and Confluence for task tracking, documentation, and team collaboration',
           ],
         },
         {
-          name: 'Project 2',
+          name: 'Samsung (Client Project)',
           period: 'March 2024 – April 2026',
           bullets: [
-            'Contributed to the development of an e-commerce platform using Angular, Hybris, and Impex',
-            'Built reactive and scalable front-end solutions using RxJS, NgRx, and Angular Signals',
-            'Applied modular architecture and best practices to deliver maintainable and efficient code',
-            'Conducted Knowledge Transfer (KT) sessions to onboard new team members',
-            'Collaborated with global teams across multiple time zones to meet project deadlines',
-            'Managed go-live deployments across different regions, ensuring smooth releases',
-            'Resolved critical production issues and optimized application performance',
-            'Worked closely with backend developers, QA, BAs, and Scrum Masters to deliver Jira tasks on time',
-            'Maintained technical documentation using Confluence',
-            'Provided post-go-live support to ensure system stability and performance',
-            'Integrated third-party APIs and handled asynchronous data flows using RxJS',
-            'Actively participated in agile ceremonies including stand-ups, sprint reviews, and retrospectives',
+            'Delivered multiple regional go-live releases across 8+ countries, providing real-time production support and resolving critical issues during deployment windows',
+            'Built reactive, scalable front-end solutions using Angular Signals, RxJS, and NgRx for a high-traffic global e-commerce platform',
+            'Integrated payment gateway solutions and third-party APIs, managing complex asynchronous data flows with RxJS',
+            'Developed dynamic email templates using VM-based files, improving transactional communication across regions',
+            'Conducted Knowledge Transfer sessions and performed feature handover to support and maintenance teams, reducing onboarding time',
+            'Collaborated with distributed global teams — backend developers, QA engineers, Business Analysts, and Scrum Masters — to consistently deliver sprint goals on time',
+            'Managed regional deployments and post-go-live support, ensuring zero-downtime stability across production environments',
+            'Maintained up-to-date technical documentation in Confluence and actively participated in Agile ceremonies',
           ],
         },
         {
-          name: 'Project 1',
+          name: 'Accenture Internal Application – Project B',
           period: 'August 2023 – March 2024',
           bullets: [
             'Developed, tested, and debugged Angular applications',
             'Created and executed test cases to ensure application reliability',
-            'Built reusable Angular components to support scalability and consistency',
+            'Built reusable components to support scalability and consistency',
             'Participated in code reviews to maintain code quality and adherence to standards',
           ],
         },
@@ -110,19 +96,27 @@ export class Resume {
       title: 'Full Stack Developer Certification',
       issuer: 'Accenture Song',
       period: 'June 2026',
-      desc: 'Passed Accenture Song\'s Full Stack Developer certification, building an end-to-end application with Angular, Java Spring Boot, and PostgreSQL, and implementing OAuth2 for security as a project requirement.',
+      bullets: [
+        'Completed an end-to-end full stack application using Angular, Java Spring Boot, and PostgreSQL',
+        'Implemented secure authentication using OAuth2 as part of the project requirements',
+      ],
     },
     {
       title: 'Claude Code AI Trainer',
       issuer: 'Anthropic · Aligner Platform',
       period: '2026',
-      desc: 'Participated as an AI trainer for Anthropic\'s Claude Code model on the Aligner platform — evaluating, rating, and providing structured feedback on code generation outputs to improve model quality.',
+      bullets: [
+        'Evaluated, rated, and provided structured feedback on code generation outputs',
+        'Contributed to improving the quality and reliability of AI-generated code',
+      ],
     },
     {
       title: 'Skill Certification: JavaScript & Front-End Development',
       issuer: 'Upwork',
       period: 'August 2024',
-      desc: 'Earned Upwork\'s verified skill certification in JavaScript and Front-End Development, validating core front-end engineering proficiency.',
+      bullets: [
+        'Earned a verified certification demonstrating strong proficiency in JavaScript and front-end development',
+      ],
     },
   ];
 
@@ -144,6 +138,7 @@ export class Resume {
     { name: 'Express.js',  icon: 'simple-icons:express',   color: '#ffffff' },
     { name: 'PostgreSQL',  icon: 'logos:postgresql',       color: '#4169e1' },
     { name: 'MongoDB',     icon: 'logos:mongodb-icon',     color: '#47a248' },
+    { name: 'Docker',      icon: 'logos:docker-icon',      color: '#2496ed' },
     { name: 'SCSS',        icon: 'logos:sass',             color: '#cc6699' },
     { name: 'Bootstrap',   icon: 'logos:bootstrap',        color: '#7952b3' },
     { name: 'Material',    icon: 'simple-icons:materialdesign', color: '#3f51b5' },
@@ -152,6 +147,7 @@ export class Resume {
 
   tools = [
     { name: 'Git',          icon: 'logos:git-icon',           color: '#f05032' },
+    { name: 'GitHub',       icon: 'simple-icons:github',      color: '#e6edf3' },
     { name: 'Jira',         icon: 'logos:jira',               color: '#0052cc' },
     { name: 'Confluence',   icon: 'logos:confluence',         color: '#172b4d' },
     { name: 'Figma',        icon: 'logos:figma',              color: '#f24e1e' },
@@ -160,5 +156,10 @@ export class Resume {
     { name: 'Illustrator',  icon: 'logos:adobe-illustrator',  color: '#ff9a00' },
     { name: 'Wix',          icon: 'logos:wix',                color: '#0c6ebd' },
     { name: 'WordPress',    icon: 'logos:wordpress-icon',     color: '#21759b' },
+    { name: 'OpenAI',       icon: 'simple-icons:openai',     color: '#74aa9c' },
+    { name: 'Gemini',       icon: 'lobe:gemini',             color: '#8E75B2' },
+    { name: 'Copilot',      icon: 'lobe:copilot',            color: '#0078d4' },
+    { name: 'Midjourney',   icon: 'lobe:midjourney',         color: '#d4d4d4' },
+    { name: 'Claude',       icon: 'lobe:claude',             color: '#d4a27f' },
   ];
 }

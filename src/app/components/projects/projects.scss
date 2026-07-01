@@ -75,10 +75,25 @@
   // ─── Preview ───────────────────────────────────────────────────────────
   &__preview {
     position: relative;
-    height: 148px;
+    height: 200px;
     overflow: hidden;
     border-bottom: 1px solid var(--border);
     background: var(--bg-surface);
+    cursor: pointer;
+
+    // Expand hint that appears on hover
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(139, 92, 246, 0.12);
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    &:hover::after { opacity: 1; }
   }
 
   // ─── Status / Year badges ───────────────────────────────────────────────
@@ -88,37 +103,40 @@
     font-weight: 700;
     letter-spacing: 0.05em;
     border-radius: var(--radius-xl);
-    padding: 0.22rem 0.6rem;
+    padding: 0.25rem 0.7rem;
     z-index: 10;
     pointer-events: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.35);
 
     &--ongoing {
       top: 10px; left: 10px;
-      background: rgba(251,191,36,0.15);
-      color: #fbbf24;
-      border: 1px solid rgba(251,191,36,0.3);
+      background: rgba(251,191,36,0.28);
+      color: #fde68a;
+      border: 1px solid rgba(251,191,36,0.6);
       animation: pulse-badge 2s ease-in-out infinite;
     }
 
     &--done {
       top: 10px; left: 10px;
-      background: rgba(52,211,153,0.12);
-      color: #34d399;
-      border: 1px solid rgba(52,211,153,0.25);
+      background: rgba(52,211,153,0.25);
+      color: #6ee7b7;
+      border: 1px solid rgba(52,211,153,0.6);
     }
 
     &--recent {
       top: 10px; right: 10px;
-      background: rgba(139,92,246,0.15);
-      color: #a78bfa;
-      border: 1px solid rgba(139,92,246,0.28);
+      background: rgba(139,92,246,0.3);
+      color: #ddd6fe;
+      border: 1px solid rgba(139,92,246,0.65);
     }
 
     &--year {
       top: 10px; right: 10px;
-      background: var(--bg-card);
-      color: var(--text-muted);
-      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.5);
+      color: #cbd5e1;
+      border: 1px solid rgba(255,255,255,0.18);
     }
   }
 
@@ -259,9 +277,9 @@
     inset: 0;
     background: linear-gradient(
       160deg,
-      rgba(139, 92, 246, 0.38) 0%,
-      rgba(59, 130, 246, 0.18) 50%,
-      rgba(8, 8, 16, 0.55) 100%
+      rgba(139, 92, 246, 0.55) 0%,
+      rgba(59, 130, 246, 0.25) 45%,
+      rgba(8, 8, 16, 0.78) 100%
     );
     pointer-events: none;
     z-index: 2;
@@ -273,9 +291,9 @@
     transform: translateX(calc(-100% / var(--slides)));
   }
 
-  // Lighten overlay slightly on hover so screenshots are more visible
+  // Lighten overlay on hover so screenshots are more visible
   &:hover &__overlay {
-    opacity: 0.7;
+    opacity: 0.55;
   }
 }
 
@@ -306,4 +324,125 @@
 
   &--live:hover { color: var(--accent-cyan); border-color: rgba(6,182,212,0.4); }
   &--drive:hover { color: #4285f4; border-color: rgba(66,133,244,0.4); }
+}
+
+// ─── Lightbox ─────────────────────────────────────────────────────────────────
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(4, 4, 12, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: lb-fade 0.18s ease;
+
+  &__close {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.18s, transform 0.18s;
+    z-index: 10;
+
+    &:hover {
+      background: rgba(255,255,255,0.18);
+      transform: scale(1.1);
+    }
+  }
+
+  &__box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: min(90vw, 1100px);
+    max-height: 88vh;
+    animation: lb-scale 0.2s cubic-bezier(0.34, 1.36, 0.64, 1);
+  }
+
+  &__img {
+    display: block;
+    max-width: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 32px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
+    user-select: none;
+  }
+
+  &__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.18s, transform 0.18s;
+    z-index: 5;
+
+    &:hover {
+      background: rgba(255,255,255,0.18);
+    }
+
+    &--prev { left: -60px; }
+    &--next { right: -60px; }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.28);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.18s, transform 0.18s;
+
+    &--active {
+      background: #fff;
+      transform: scale(1.3);
+    }
+
+    &:hover:not(&--active) {
+      background: rgba(255,255,255,0.55);
+    }
+  }
+}
+
+@keyframes lb-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes lb-scale {
+  from { transform: scale(0.88); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
 }
