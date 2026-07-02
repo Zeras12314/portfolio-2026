@@ -31,7 +31,7 @@ export class Resume {
           name: 'Samsung (Client Project)',
           period: 'March 2024 – April 2026',
           bullets: [
-            'Delivered multiple regional go-live releases across 8+ countries, providing real-time production support and resolving critical issues during deployment windows',
+            'Delivered multiple regional go-live releases across global markets spanning Europe, Asia, and beyond, providing real-time production support and resolving critical issues during deployment windows',
             'Built reactive, scalable front-end solutions using Angular Signals, RxJS, and NgRx for a high-traffic global e-commerce platform',
             'Integrated payment gateway solutions and third-party APIs, managing complex asynchronous data flows with RxJS',
             'Developed dynamic email templates using VM-based files, improving transactional communication across regions',
