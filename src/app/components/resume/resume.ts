@@ -13,7 +13,7 @@ export class Resume {
       company: 'Accenture Philippines',
       role: 'Advanced App Engineering Analyst',
       period: 'Aug 2023 – Present',
-      desc: 'Contributed across multiple projects, including internal applications and a global client engagement.',
+      desc: 'Worked flexibly across a broad tech stack — Angular, NestJS, Spring Boot, PostgreSQL, and MongoDB — contributing to internal applications and a global client engagement.',
       current: true,
       projects: [
         {
@@ -46,6 +46,7 @@ export class Resume {
           period: 'August 2023 – March 2024',
           bullets: [
             'Developed, tested, and debugged Angular applications',
+            'Contributed to backend microservices using NestJS, deployed via Jenkins CI/CD, and monitored with AWS CloudWatch',
             'Created and executed test cases to ensure application reliability',
             'Built reusable components to support scalability and consistency',
             'Participated in code reviews to maintain code quality and adherence to standards',
@@ -76,7 +77,7 @@ export class Resume {
     {
       company: 'Freelance',
       role: 'Web Developer',
-      period: 'Ongoing',
+      period: '—',
       desc: 'Designed and built client websites, hand-coded and via CMS platforms including Wix, WordPress, and Squarespace.',
       current: false,
     },
@@ -136,9 +137,12 @@ export class Resume {
     { name: 'Spring Boot', icon: 'logos:spring-icon',      color: '#6db33f' },
     { name: 'Node.js',     icon: 'logos:nodejs-icon',      color: '#339933' },
     { name: 'Express.js',  icon: 'simple-icons:express',   color: '#ffffff' },
+    { name: 'NestJS',      icon: 'logos:nestjs',           color: '#e0234e' },
     { name: 'PostgreSQL',  icon: 'logos:postgresql',       color: '#4169e1' },
     { name: 'MongoDB',     icon: 'logos:mongodb-icon',     color: '#47a248' },
     { name: 'Docker',      icon: 'logos:docker-icon',      color: '#2496ed' },
+    { name: 'Jenkins',     icon: 'logos:jenkins',          color: '#d24939' },
+    { name: 'AWS',         icon: 'logos:aws',              color: '#ff9900' },
     { name: 'SCSS',        icon: 'logos:sass',             color: '#cc6699' },
     { name: 'Bootstrap',   icon: 'logos:bootstrap',        color: '#7952b3' },
     { name: 'Material',    icon: 'simple-icons:materialdesign', color: '#3f51b5' },
